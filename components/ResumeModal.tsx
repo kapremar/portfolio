@@ -11,38 +11,31 @@ interface ResumeModalProps {
 
 export default function ResumeModal({ isOpen, onClose, resumeUrl }: ResumeModalProps) {
   const resumeContent = `
-    RAYNEL MADELO
-    BSIT 3rd Year Student | Web Developer
+    REMAR SANSAIT
+    BSIT 3rd Year Student | Full-Stack Explorer
     
     CONTACT INFORMATION
-    Email: raynelmadelo@gmail.com
-    GitHub: raynelM
+    Email: remarsansait39@gmail.com
+    GitHub: github.com/remarsansait
     
     EDUCATION
     Bachelor of Science in Information Technology (BSIT)
-    Currently in 3rd Year
+    3rd Year • Focus on product-driven development and UI engineering
     
-    SKILLS
-    • HTML - Proficient in creating semantic and accessible web structures
-    • CSS - Skilled in styling, layouts, and responsive design
-    • JavaScript - Strong understanding of ES6+ and modern JavaScript
-    • React - Experience building interactive user interfaces
-    • Next.js - Knowledgeable in server-side rendering and React framework
-    • Express.js - Capable of building RESTful APIs and backend services
+    SKILLS SNAPSHOT
+    • UI: HTML, CSS, Tailwind, Framer Motion
+    • Frontend: JavaScript, TypeScript, React, Next.js
+    • Backend: Node.js, Express.js, REST APIs, MongoDB
+    • Tooling: Git & GitHub, Figma, Agile collaboration
     
-    TECHNICAL SKILLS
-    Frontend Development: HTML, CSS, JavaScript, React, Next.js
-    Backend Development: Express.js, Node.js
-    Version Control: Git, GitHub
+    FEATURED PROJECTS
+    • Portfolio Redesign — High-contrast theme with responsive grids and motion-first interactions.
+    • FCFS CPU Scheduling Visualizer — Interactive tool that simulates processes with animated Gantt charts.
+    • Campus Utility Apps — Built CRUD dashboards and auth flows for class-wide submissions.
     
-    PROJECTS
-    • Portfolio Website - Built with Next.js and React
-    • FCFS CPU Scheduling Algorithm Visualizer - Interactive algorithm demonstration
-    
-    ABOUT
-    Passionate about web development and creating innovative digital solutions.
-    Always eager to learn new technologies and apply them to build real-world
-    applications that make a difference.
+    ABOUT ME
+    I bring a bold visual style to reliable engineering. My workflow balances research,
+    prototyping, and system thinking so every build feels fast, intentional, and accessible.
   `;
 
   return (

@@ -27,7 +27,7 @@ export default function Navigation() {
             transition={{ duration: 0.5 }}
             className="text-lg sm:text-xl font-bold text-primary font-mono"
           >
-            Jaime Peralta
+            Remar Sansait
           </motion.div>
           
           {/* Desktop Navigation */}

@@ -1,107 +1,146 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Send, MapPin, Calendar } from "lucide-react";
+import {
+  ArrowUpRight,
+  Github,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Radio,
+  FileText,
+} from "lucide-react";
 
-const contactItems = [
+const contactChannels = [
   {
+    title: "Email",
+    value: "remarsansait39@gmail.com",
     icon: Mail,
-    label: "Email",
-    value: "jaimeperalta124@gmail.com",
-    link: "mailto:jaimeperalta124@gmail.com",
+    link: "mailto:remarsansait39@gmail.com",
+    description: "Best for project briefs, collaboration ideas, and formal conversations.",
   },
   {
+    title: "GitHub",
+    value: "github.com/remarsansait",
     icon: Github,
-    label: "GitHub",
-    value: "jaimeETH",
-    link: "https://github.com/jaimeETH",
+    link: "https://github.com/remarsansait",
+    description: "Browse current experiments, forks, and documentation.",
   },
+  {
+    title: "Resume deck",
+    value: "remar.pdf",
+    icon: FileText,
+    link: "/remar.pdf",
+    description: "Download the latest snapshot of my work, values, and project index.",
+  },
+];
+
+const pulses = [
+  { label: "Location", value: "Cebu City, Philippines", icon: MapPin },
+  { label: "Response time", value: "Usually within a day", icon: Radio },
+  { label: "Preferred collabs", value: "Student tools, design systems, motion UI", icon: MessageSquare },
 ];
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background pt-20 sm:pt-24" id="contact">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
+    <div className="min-h-screen bg-background pt-20 sm:pt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-10">
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
+          className="bg-card border-2 border-border p-6 sm:p-8 text-center space-y-4"
         >
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.6, type: "spring" }}
-            className="inline-block mb-4"
-          >
-            <div className="p-4 bg-primary/10 border-2 border-primary inline-block">
-              <Send className="w-12 h-12 sm:w-16 sm:h-16 text-primary" />
-            </div>
-          </motion.div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-primary">
-            Get In Touch
-          </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Let&apos;s connect and explore opportunities to work together on exciting projects
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">
+            Contact · Studio Inbox
           </p>
-        </motion.div>
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+            Let&apos;s build courageous products together.
+          </h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            I collaborate with classmates, org partners, and mentors on web products that need
+            expressive interfaces and reliable engineering. Reach out through any channel below.
+          </p>
+        </motion.header>
 
-        {/* Contact Cards - New Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
-          {contactItems.map((item, index) => {
-            const Icon = item.icon;
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {contactChannels.map((channel, index) => {
+            const Icon = channel.icon;
             return (
               <motion.a
-                key={item.label}
-                href={item.link}
-                target={item.link.startsWith("http") ? "_blank" : undefined}
-                rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                initial={{ opacity: 0, y: 30 }}
+                key={channel.title}
+                href={channel.link}
+                target={channel.link.startsWith("http") ? "_blank" : undefined}
+                rel={channel.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-card border-2 border-border p-6 sm:p-8 hover:border-primary transition-all group"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-card border-2 border-border p-6 flex flex-col gap-4 hover:border-primary transition-colors"
               >
-                <motion.div
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 border-2 border-primary flex items-center justify-center mb-4"
-                >
-                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
-                </motion.div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">{item.label}</h3>
-                <p className="text-muted-foreground group-hover:text-foreground transition-colors break-all font-mono text-sm sm:text-base">
-                  {item.value}
-                </p>
+                <div className="w-12 h-12 border-2 border-primary bg-primary/10 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase text-muted-foreground font-mono">
+                    {channel.title}
+                  </p>
+                  <p className="text-lg font-semibold text-foreground break-words">
+                    {channel.value}
+                  </p>
+                </div>
+                <p className="text-sm text-muted-foreground">{channel.description}</p>
+                <div className="text-sm font-semibold text-primary flex items-center gap-1">
+                  Open channel
+                  <ArrowUpRight className="w-4 h-4" />
+                </div>
               </motion.a>
             );
           })}
-        </div>
+        </section>
 
-        {/* Additional Info - New Layout */}
-        <motion.div
+        <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-card border-2 border-border p-6 sm:p-8 max-w-3xl mx-auto"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-card border-2 border-border p-6 sm:p-8 space-y-6"
         >
-          <h3 className="text-2xl font-bold mb-4 text-foreground text-center">Let&apos;s Work Together</h3>
-          <p className="text-muted-foreground leading-relaxed mb-6 text-center">
-            Whether you have a project idea, want to collaborate, or just want to connect, I&apos;d love to hear from you. Feel free to reach out through email or check out my work on GitHub.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <MapPin className="w-4 h-4" />
-              <span>Philippines</span>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase text-muted-foreground font-mono">Collab pulse</p>
+              <h2 className="text-2xl font-bold text-foreground">
+                What to expect when we work together
+              </h2>
             </div>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Calendar className="w-4 h-4" />
-              <span>Available for Projects</span>
-            </div>
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href="mailto:remarsansait39@gmail.com"
+              className="inline-flex items-center gap-2 px-4 py-2 border-2 border-border hover:border-primary text-sm font-semibold transition-colors"
+            >
+              Draft an email
+              <ArrowUpRight className="w-4 h-4 text-primary" />
+            </motion.a>
           </div>
-        </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {pulses.map((pulse) => {
+              const Icon = pulse.icon;
+              return (
+                <div key={pulse.label} className="border border-border/70 p-4 bg-background/70">
+                  <div className="flex items-center gap-2 text-xs uppercase text-muted-foreground font-mono">
+                    <Icon className="w-4 h-4 text-primary" />
+                    {pulse.label}
+                  </div>
+                  <p className="text-lg font-semibold text-foreground mt-2">{pulse.value}</p>
+                </div>
+              );
+            })}
+          </div>
+          <p className="text-sm text-muted-foreground">
+            I document every step—from kickoff questions to delivery checklists—so progress stays
+            transparent. Expect weekly updates, recorded Loom demos when needed, and a shared board
+            for tasks.
+          </p>
+        </motion.section>
       </div>
     </div>
   );

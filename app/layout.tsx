@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jaime Peralta",
-  description: "Portfolio of Jaime, a BSIT 3rd year student specializing in web development with HTML, CSS, JavaScript, React, Next.js, and Express.js",
+  title: "Remar Sansait | BSIT Portfolio",
+  description:
+    "Remar Sansait is a BSIT 3rd year student crafting bold, high-contrast web experiences with React, Next.js, Express, and motion-first design.",
 };
 
 export default function RootLayout({
